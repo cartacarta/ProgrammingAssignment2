@@ -1,8 +1,13 @@
 ## makeCacheMatrix() and cacheSolve() can be used to create a special matrix
-## that allows to cache its inverse.
+## that allows to cache its inverse. For its usage first create a "cacheMatrix"
+## object and then compute the inverse via cacheSolve. Example
+## > m <- makeCacheMatrix(matrix(rnorm(16),4,4))
+## > cacheSolve(m)
+## if you call cacheSolve(m) again, you should see the message "getting cached data"
 
 makeCacheMatrix <- function(x = matrix()) {
   ## This function creates a special "matrix" object that can cache its inverse
+  ## it provides getters and setters for both the matrix and its inverse
 
   inverse <- NULL
   
